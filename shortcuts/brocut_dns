@@ -1,0 +1,1 @@
+bro-cut -d id.orig_h id.resp_h query AA answers TTLS rejected
