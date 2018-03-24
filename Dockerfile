@@ -1,7 +1,7 @@
 FROM blue-centos-base:latest
 ENV workdir /app/code
 RUN mkdir -p $workdir/pcaps
-RUN mkdir -p $workdir/shorcuts
+RUN mkdir -p $workdir/shortcuts
 RUN mkdir -p $workdir/logs
 ADD ./shortcuts $workdir/shortcuts
 RUN yum -y install bro; yum -y install gcc gcc-c++ python2-pip python-devel; yum -y clean all; yum -y update
