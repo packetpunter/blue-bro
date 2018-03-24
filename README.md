@@ -1,6 +1,6 @@
 ## Intro
 
-This container is built using my other [docker base image](https://github.com/packetpunter/bro-centos), so it will have to be built into your docker image list before this image can run.
+This container is built using my other [docker base image](https://github.com/packetpunter/blue-centos-base), so it will have to be built into your docker image list before this image can run.
 
 It is meant to be an on-the-fly analyzer for pcap files in the field using bro and some fancy shell scripts.
 
