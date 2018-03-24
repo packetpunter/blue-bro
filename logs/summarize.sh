@@ -1,1 +1,1 @@
-../trace-summary/trace-summary -c conn.log
+../utils/trace-summary/trace-summary -c conn.log
