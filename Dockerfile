@@ -1,14 +1,13 @@
 FROM blue-centos-base:latest
 ENV workdir /app/code
+ENV brodir /app/bro
 RUN mkdir -p $workdir/pcaps
 RUN mkdir -p $workdir/shortcuts
-RUN mkdir -p $workdir/logs
+RUN mkdir -p $brodir/logs
+RUN mkdir -p $brodir/spool
 ADD ./shortcuts $workdir/shortcuts
 RUN yum -y update; yum -y install which wget unzip
-RUN cd /etc/yum.repos.d/
-RUN wget http://download.opensuse.org/repositories/network:bro/CentOS_7/network:bro.repo
-RUN -y yum install bro
+RUN cd /etc/yum.repos.d/; wget http://download.opensuse.org/repositories/network:bro/CentOS_7/network:bro.repo; yum -y install bro wireshark
 RUN cd $workdir
-RUN pip2 install pysubnettree
 WORKDIR $workdir
 ENTRYPOINT /bin/pwsh
