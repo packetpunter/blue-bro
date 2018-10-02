@@ -9,6 +9,11 @@ ADD ./shortcuts $workdir/shortcuts
 RUN yum -y update; yum -y install which wget unzip
 RUN cd /etc/yum.repos.d/; wget http://download.opensuse.org/repositories/network:bro/CentOS_7/network:bro.repo; yum -y install bro wireshark
 RUN cd $workdir
-ADD broconf/broctl.cfg /opt/bro/etc
+COPY broctl.cfg /opt/bro/etc/
+RUN pip3 install bro-pkg
+RUN bro-pkg install --force bro/corelight/bro-long-connections
+RUN bro-pkg refresh; bro-pkg install --force bro/corelight/top-dns
+RUN bro-pkg refresh; bro-pkg install --force sethhall/unknown-mime-type-discovery
+RUN bro-pkg refresh; bro-pkg install --force bro/corelight/bro-drwatson
 WORKDIR $workdir
 ENTRYPOINT /bin/pwsh

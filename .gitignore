@@ -2,3 +2,4 @@
 *.cap*
 *.log
 *state*
+*.note*
